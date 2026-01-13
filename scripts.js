@@ -417,7 +417,7 @@ function load() {
 function resetGame() {
     let conf = confirm("Are you sure you want to reset your save?");
     if (conf) {
-        localStorage.clear();
+        localStorage.removeItem("saveDataTC");
         location.reload();
     }
 }
