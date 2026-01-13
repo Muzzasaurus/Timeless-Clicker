@@ -15,6 +15,7 @@ var objectsDestroyed = 0;
 var lastUpdate = Date.now();
 var deltaTime = 0;
 var updateObj = false;
+var loadedImages = [];
 const FPS = 50;
 const OBJECTBUTTON = document.getElementById('theClicker');
 const HEALTHBAR = document.getElementById('healthBar');
@@ -280,6 +281,17 @@ function hitObject() {
     }
 }
 
+function loadImages() {
+    for (let i = 0; i < objects.length; i++) {
+        preloadImg(objects[i].image);
+    }
+}
+
+function preloadImg(url) {
+    let img=new Image().src = url;
+    loadedImages.push(img);
+}
+
 function shakeScreen() {
     shakeIntensity = Math.max(0, shakeIntensity - shakeDecay);
     SCREEN.style.transform = `translate(${Math.random()*shakeIntensity-shakeIntensity/2}px, ${Math.random()*shakeIntensity-shakeIntensity/2}px)`;
@@ -479,6 +491,7 @@ function mainLoop() {
 if (localStorage.saveDataTC) {
     load();
 }
+loadImages();
 addButtonListeners();
 updateObject();
 setInterval(mainLoop, 1/FPS);
