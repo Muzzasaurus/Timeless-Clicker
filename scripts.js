@@ -71,7 +71,7 @@ objects.push(object);
 object = new Mineable(250, 'Cardboard', 'Assets/Images/Cardboard.png');
 objects.push(object);
 
-object = new Mineable(500, 'Plastic', 'Assets/Images/Plastic.png');
+object = new Mineable(500, 'Plastic', 'Assets/Images/plastic.png');
 objects.push(object);
 
 object = new Mineable(1000, 'Wood', 'Assets/Images/Wood.png');
