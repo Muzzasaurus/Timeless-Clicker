@@ -1,0 +1,233 @@
+@font-face {
+    font-family: barlow;
+    src: url(Assets/Fonts/Barlow-Thin.ttf);
+    font-weight: 100;
+}
+@font-face {
+    font-family: barlow;
+    src: url(Assets/Fonts/Barlow-ExtraLight.ttf);
+    font-weight: 200;
+}
+@font-face {
+    font-family: barlow;
+    src: url(Assets/Fonts/Barlow-Light.ttf);
+    font-weight: 300;
+}
+@font-face {
+    font-family: barlow;
+    src: url(Assets/Fonts/Barlow-Regular.ttf);
+    font-weight: 400;
+}
+@font-face {
+    font-family: barlow;
+    src: url(Assets/Fonts/Barlow-Medium.ttf);
+    font-weight: 500;
+}
+@font-face {
+    font-family: barlow;
+    src: url(Assets/Fonts/Barlow-SemiBold.ttf);
+    font-weight: 600;
+}
+@font-face {
+    font-family: barlow;
+    src: url(Assets/Fonts/Barlow-Bold.ttf);
+    font-weight: 700;
+}
+@font-face {
+    font-family: barlow;
+    src: url(Assets/Fonts/Barlow-ExtraBold.ttf);
+    font-weight: 800;
+}
+@font-face {
+    font-family: barlow;
+    src: url(Assets/Fonts/Barlow-Black.ttf);
+    font-weight: 900;
+}
+
+:root {
+    --top-gradient: rgba(0, 0, 110, 1);
+    --bottom-gradient: rgba(46, 0, 110, 1);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: barlow;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+html, body, #hugeBigContainer {
+    height: 100%;
+    overflow: hidden;
+}
+
+#hugeBigContainer {
+    background: linear-gradient(180deg,var(--top-gradient) 0%, var(--bottom-gradient) 100%);
+    display: grid;
+    grid-template-rows: 2fr 10fr 1.5fr;
+}
+
+#healthContainer, #clickArea {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#theClicker {
+    width: 20%;
+    transition-duration: 100ms;
+}
+
+#theClicker:hover {
+    width: 21%;
+    cursor: pointer;
+}
+
+#theClicker:active {
+    width: 19%;
+}
+
+#healthBar {
+    border: 4px solid black;
+    width: 80%;
+    padding: 0.5rem 0;
+    background: linear-gradient(90deg, var(--health-bar) 100%, rgba(0, 0, 0, 0) 0%);
+}
+
+#healthDisplay, #nameDisplay, #settingsTitle {
+    font-family: barlow;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#nameDisplay {
+    font-size: 3rem;
+}
+
+#strengthButton {
+    background-color: #cecece;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 4px solid #919191;
+    position: fixed;
+    left: 1rem;
+}
+
+#strengthButton p {
+    font-family: barlow;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+#objectDisplay {
+    font-family: barlow;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 500;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+#prevObj, #nextObj {
+    height: 3rem;
+    transition-duration: 100ms;
+}
+
+#prevObj:hover, #nextObj:hover {
+    height: 3.25rem;
+    cursor: pointer;
+}
+
+#prevObj:active, #nextObj:active {
+    height: 2.75rem;
+}
+
+#nextObj {
+    transform: scaleX(-1);
+}
+
+#settings {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    width: 4rem;
+    filter: invert(100%);
+    transition-duration: 100ms;
+}
+
+#settings:hover {
+    transform: rotate(90deg);
+    cursor: pointer;
+}
+
+#settingsContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #00000067;
+}
+
+#settingsPage {
+    position: absolute;
+    width: 40%;
+    height: 80%;
+    background-color: #221f25;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 16px;
+    border: 2px solid #000000;
+    padding: 1rem;
+}
+
+#flashbang {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.regularText {
+    font-family: barlow;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #f1f1f1;
+}
+
+#settingsButtons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+button {
+    font-family: barlow;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 450;
+}

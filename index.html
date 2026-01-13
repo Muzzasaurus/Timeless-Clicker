@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeless Clicker</title>
+</head>
+<body>
+    <div id="flashbang" style="opacity: 0;"></div>
+    <div id="hugeBigContainer">
+        <div id="healthContainer">
+            <p id="nameDisplay"></p>
+            <div id="healthBar">
+                <p id="healthDisplay"></p>
+            </div>
+        </div>
+        <div id="clickArea">
+            <img id="theClicker" draggable="false">
+            <div id="strengthButton" style="display: none;">
+                <p>Gain *1.5 Strength (1)</p>
+            </div>
+        </div>
+        <div id="footer">
+            <img id="prevObj" draggable="false" src="Assets/Images/Arrow.png" change="-1">
+            <p id="objectDisplay"></p>
+            <img id="nextObj" draggable="false" src="Assets/Images/Arrow.png" change="1">
+        </div>
+        <img id="settings" draggable="false" src="Assets/Images/Settings.png">
+        <div id="settingsContainer" style="display: none;">
+        </div>
+        <div id="settingsPage" style="display: none;">
+            <p id="settingsTitle" style="color: #f1f1f1; margin-bottom: 1rem; font-size: 2.5rem;">Settings + Stats</p>
+            <div id="settingsButtons">
+                <button id="muteButton">Mute</button>
+                <button id="exportButton">Export Save</button>
+                <button id="importButton">Import Save</button>
+                <button id="resetButton">Hard Reset</button>
+            </div>
+            <p class="regularText" id="clicksStat">Total clicks: 0</p>
+            <p class="regularText" id="destroyedStat">Total objects destroyed: 0</p>
+            <p class="regularText" id="timeStat">Time spent: 0</p>
+        </div>
+    </div>
+    <script src="scripts.js" defer></script>
+</body>
