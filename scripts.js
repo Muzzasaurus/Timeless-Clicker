@@ -384,7 +384,7 @@ function formatTime(num) {
 }
 
 function save() {
-    const saveData = {
+    const saveDataTC = {
         objects: objects,
         currentObj: currentObject,
         maxObj: maxObject,
@@ -393,23 +393,23 @@ function save() {
         timeSpent: timeSpent,
         objectsDestroyed: objectsDestroyed
     };
-	localStorage.setItem("saveData", JSON.stringify(saveData));
+	localStorage.setItem("saveDataTC", JSON.stringify(saveDataTC));
 }
 
 function load() {
-    if (localStorage.saveData) saveData = JSON.parse(localStorage.getItem("saveData"));
+    if (localStorage.saveDataTC) saveDataTC = JSON.parse(localStorage.getItem("saveDataTC"));
     let obj;
-    for (let i = 0; i < saveData.objects.length; i++) {
-        obj = objects.find(o => o.name === saveData.objects[i].name)
-        obj.health = saveData.objects[i].health;
-        obj.timesBroken = saveData.objects[i].timesBroken;
+    for (let i = 0; i < saveDataTC.objects.length; i++) {
+        obj = objects.find(o => o.name === saveDataTC.objects[i].name)
+        obj.health = saveDataTC.objects[i].health;
+        obj.timesBroken = saveDataTC.objects[i].timesBroken;
     }
-    currentObject = saveData.currentObj;
-    maxObject = saveData.maxObj;
-    mute = saveData.mute;
-    totalClicks = saveData.totalClicks;
-    timeSpent = saveData.timeSpent;
-    objectsDestroyed = saveData.objectsDestroyed;
+    currentObject = saveDataTC.currentObj;
+    maxObject = saveDataTC.maxObj;
+    mute = saveDataTC.mute;
+    totalClicks = saveDataTC.totalClicks;
+    timeSpent = saveDataTC.timeSpent;
+    objectsDestroyed = saveDataTC.objectsDestroyed;
     updateObject();
     updateSettings();
 }
@@ -423,7 +423,7 @@ function resetGame() {
 }
 
 function exportSave() {
-	let temp = btoa(JSON.stringify(localStorage.saveData));
+	let temp = btoa(JSON.stringify(localStorage.saveDataTC));
 	navigator.clipboard.writeText(temp);
 	alert("Save copied to clipboard!");
 }
@@ -433,7 +433,7 @@ function importSave() {
 	if (temp === undefined || temp === null || temp == "") {
 	} else {
 		try {
-			localStorage.setItem("saveData", JSON.parse(atob(temp)));
+			localStorage.setItem("saveDataTC", JSON.parse(atob(temp)));
 			load();
 		}
 		catch(err) {
@@ -476,7 +476,7 @@ function mainLoop() {
 }
 
 //Initial code to execute
-if (localStorage.saveData) {
+if (localStorage.saveDataTC) {
     load();
 }
 addButtonListeners();
