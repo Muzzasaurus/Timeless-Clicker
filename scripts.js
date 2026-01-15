@@ -16,6 +16,8 @@ var lastUpdate = Date.now();
 var deltaTime = 0;
 var updateObj = false;
 var loadedImages = [];
+var topGradient = '#00006e';
+var bottomGradient = '#2e006e';
 const FPS = 50;
 const OBJECTBUTTON = document.getElementById('theClicker');
 const HEALTHBAR = document.getElementById('healthBar');
@@ -34,6 +36,8 @@ const CLICKSSTAT = document.getElementById('clicksStat');
 const TIMESTAT = document.getElementById('timeStat');
 const DESTROYEDSTAT = document.getElementById('destroyedStat');
 const CPSSTAT = document.getElementById('cpsStat');
+const TOPGRADPICKER = document.getElementById('topGradientPicker');
+const BOTTOMGRADPICKER = document.getElementById('bottomGradientPicker');
 const GENERICHIT = new Audio('Assets/Audio/generic.mp3');
 const PAPERHIT = new Audio('Assets/Audio/paper.mp3');
 const EXPLOSION = new Audio('Assets/Audio/sndExplosion.wav');
@@ -199,6 +203,8 @@ function addButtonListeners() {
     document.getElementById('exportButton').addEventListener('click', exportSave);
     document.getElementById('importButton').addEventListener('click', importSave);
     document.getElementById('resetButton').addEventListener('click', resetGame);
+    TOPGRADPICKER.addEventListener('input', updateBackground);
+    BOTTOMGRADPICKER.addEventListener('input', updateBackground);
     //DEBUGBUTTON.addEventListener('click', addStrength);
 }
 
@@ -207,12 +213,19 @@ function toggleMute() {
     updateSettings();
 }
 
+function updateBackground() {
+    topGradient = TOPGRADPICKER.value;
+    bottomGradient = BOTTOMGRADPICKER.value;
+}
+
 function updateSettings() {
     if (mute) {
         document.getElementById('muteButton').innerHTML = 'Unmute';
     } else {
         document.getElementById('muteButton').innerHTML = 'Mute';
     }
+    TOPGRADPICKER.value = topGradient;
+    BOTTOMGRADPICKER.value = bottomGradient;
 }
 
 function toggleSettings() {
@@ -404,7 +417,9 @@ function save() {
         mute: mute,
         totalClicks: totalClicks,
         timeSpent: timeSpent,
-        objectsDestroyed: objectsDestroyed
+        objectsDestroyed: objectsDestroyed,
+        topGradient: topGradient,
+        bottomGradient: bottomGradient
     };
 	localStorage.setItem("saveDataTC", JSON.stringify(saveDataTC));
 }
@@ -423,6 +438,10 @@ function load() {
     totalClicks = saveDataTC.totalClicks;
     timeSpent = saveDataTC.timeSpent;
     objectsDestroyed = saveDataTC.objectsDestroyed;
+    if (saveDataTC.topGradient) {
+        topGradient = saveDataTC.topGradient;
+        bottomGradient = saveDataTC.bottomGradient;
+    }
     updateObject();
     updateSettings();
 }
@@ -470,7 +489,7 @@ function mainLoop() {
     HEALTHBAR.style.background = `linear-gradient(90deg, ${hslToHex(displayHealth/100*121, 82, 56)} ${displayHealth}%, rgba(0, 0, 0, 0) 0%)`;
     HEALTHDISPLAY.innerHTML = `${formatNum(objects[currentObject].health)}/${formatNum(objects[currentObject].maxHealth)}`;
     //Background gradient
-    document.getElementsByTagName('body')[0].style.background = `linear-gradient(${180 + Math.sin(time/2*Math.PI/180)*10}deg, var(--top-gradient) 0%, var(--bottom-gradient) 100%)`;
+    SCREEN.style.background = `linear-gradient(${180 + Math.sin(time/2*Math.PI/180)*10}deg, ${topGradient} 0%, ${bottomGradient} 100%)`;
     time++;
     if (SETTINGSCONTAINER.style.display == 'block') {
         CLICKSSTAT.innerHTML = `Total clicks: ${formatNum(totalClicks)}`;

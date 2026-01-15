@@ -44,11 +44,6 @@
     font-weight: 900;
 }
 
-:root {
-    --top-gradient: rgba(0, 0, 110, 1);
-    --bottom-gradient: rgba(46, 0, 110, 1);
-}
-
 * {
     padding: 0;
     margin: 0;
@@ -67,8 +62,12 @@ html, body, #hugeBigContainer {
     overflow: hidden;
 }
 
+body {
+    background-color: #000000;
+}
+
 #hugeBigContainer {
-    background: linear-gradient(180deg,var(--top-gradient) 0%, var(--bottom-gradient) 100%);
+    background: linear-gradient(180deg,#00006e 0%, #2e006e 100%);
     display: grid;
     grid-template-rows: 2fr 10fr 1.5fr;
 }
@@ -284,6 +283,13 @@ html, body, #hugeBigContainer {
     gap: 1rem;
     margin-bottom: 1rem;
     flex-wrap: wrap;
+}
+
+#colourPickers {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 button {
