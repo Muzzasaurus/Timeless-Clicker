@@ -33,6 +33,7 @@ const FLASHBANG = document.getElementById('flashbang');
 const CLICKSSTAT = document.getElementById('clicksStat');
 const TIMESTAT = document.getElementById('timeStat');
 const DESTROYEDSTAT = document.getElementById('destroyedStat');
+const CPSSTAT = document.getElementById('cpsStat');
 const GENERICHIT = new Audio('Assets/Audio/generic.mp3');
 const PAPERHIT = new Audio('Assets/Audio/paper.mp3');
 const EXPLOSION = new Audio('Assets/Audio/sndExplosion.wav');
@@ -475,6 +476,7 @@ function mainLoop() {
         CLICKSSTAT.innerHTML = `Total clicks: ${formatNum(totalClicks)}`;
         TIMESTAT.innerHTML = `Time spent: ${formatTime(timeSpent)}`;
         DESTROYEDSTAT.innerHTML = `Total objects destroyed: ${formatNum(objectsDestroyed)}`;
+        CPSSTAT.innerHTML = `Average cps: ${formatNum(totalClicks/(timeSpent/1000))}`;
     }
     if (shakeIntensity > 0) shakeScreen();
     if (flashOpacity > 0) {
