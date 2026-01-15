@@ -82,18 +82,68 @@ html, body, #hugeBigContainer {
     gap: 0.5rem;
 }
 
-#theClicker {
-    width: 20%;
-    transition-duration: 100ms;
+@media (max-width: 800px) {
+    #theClicker {
+        width: 50%;
+        transition-duration: 100ms;
+    }
+
+    #theClicker:hover {
+        width: 52%;
+        cursor: pointer;
+    }
+
+    #theClicker:active {
+        width: 48%;
+    }
 }
 
-#theClicker:hover {
-    width: 21%;
-    cursor: pointer;
+@media (min-width: 801px) {
+    #theClicker {
+        width: 40%;
+        transition-duration: 100ms;
+    }
+
+    #theClicker:hover {
+        width: 41.5%;
+        cursor: pointer;
+    }
+
+    #theClicker:active {
+        width: 38.5%;
+    }
 }
 
-#theClicker:active {
-    width: 19%;
+@media (min-width: 1150px) {
+    #theClicker {
+        width: 30%;
+        transition-duration: 100ms;
+    }
+
+    #theClicker:hover {
+        width: 31.5%;
+        cursor: pointer;
+    }
+
+    #theClicker:active {
+        width: 28.5%;
+    }
+}
+
+@media (min-width: 1400px) {
+    #theClicker {
+        width: 20%;
+        transition-duration: 100ms;
+    }
+
+    #theClicker:hover {
+        width: 21%;
+        cursor: pointer;
+    }
+
+    #theClicker:active {
+        width: 19%;
+    }
 }
 
 #healthBar {
