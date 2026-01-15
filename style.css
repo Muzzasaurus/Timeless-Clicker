@@ -83,6 +83,10 @@ html, body, #hugeBigContainer {
 }
 
 @media (max-width: 800px) {
+    #settingsPage {
+        width: 60%;
+    }
+
     #theClicker {
         width: 50%;
         transition-duration: 100ms;
@@ -99,6 +103,10 @@ html, body, #hugeBigContainer {
 }
 
 @media (min-width: 801px) {
+    #settingsPage {
+        width: 50%;
+    }
+
     #theClicker {
         width: 40%;
         transition-duration: 100ms;
@@ -115,6 +123,10 @@ html, body, #hugeBigContainer {
 }
 
 @media (min-width: 1150px) {
+    #settingsPage {
+        width: 40%;
+    }
+
     #theClicker {
         width: 30%;
         transition-duration: 100ms;
@@ -239,7 +251,6 @@ html, body, #hugeBigContainer {
 
 #settingsPage {
     position: absolute;
-    width: 40%;
     height: 80%;
     background-color: #221f25;
     transform: translate(-50%, -50%);
